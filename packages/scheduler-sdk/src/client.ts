@@ -8,13 +8,13 @@ import {
   JobListResponse,
   JobListParams,
   JobStatus,
-} from './types';
+} from './types.js';
 import {
   ApiError,
   NetworkError,
   JobNotFoundError,
   DuplicateJobError,
-} from './errors';
+} from './errors.js';
 
 /**
  * Configuration options for the Scheduler client
@@ -22,7 +22,7 @@ import {
 export interface SchedulerClientOptions {
   /**
    * Base URL for the Scheduler API
-   * @default 'http://localhost:3000'
+   * @default 'http://localhost:3001'
    */
   baseUrl?: string;
 
@@ -50,7 +50,7 @@ export class SchedulerClient {
    * @param options Client configuration options
    */
   constructor(options: SchedulerClientOptions = {}) {
-    this.baseUrl = options.baseUrl || 'http://localhost:3000';
+    this.baseUrl = options.baseUrl || 'http://localhost:3001';
     
     this.client = axios.create({
       baseURL: this.baseUrl,
